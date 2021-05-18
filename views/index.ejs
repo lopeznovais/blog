@@ -1,0 +1,38 @@
+<%- include ('partials/header.ejs') %> <%- include ('partials/homenavbar.ejs')
+%>
+<body>
+  <div class="container">
+    <br />
+    <div class="jumbotron">
+      <h1 class="display-4">Bem-vindo</h1>
+      <p class="lead">Este é um simples blog feito com Node.</p>
+      <hr class="my-4" />
+      <p>
+        Este blog foi feito utilizando diversas bibliotecas do Node com a
+        finalidade de praticar programação. Foram utilizadas bibliotecas como o
+        Express e o Sequelize em conjunto com postgres.
+      </p>
+    </div>
+    <hr />
+    <% articles.forEach((article) => { %>
+    <div class="card">
+      <div class="card-header">
+        <h2><%= article.title %></h2>
+      </div>
+      <div class="card-body">
+        <a href="/<%= article.slug %> " class="btn btn-success">Ler Artigo</a>
+      </div>
+    </div>
+    <br />
+    <% }) %> <% if(articles.length > 4) {%>
+    <div class="row">
+      <div class="col col-12">
+        <a style="float: right" href="/articles/page/2">Próxima Página >>></a>
+      </div>
+
+      <hr />
+    </div>
+    <% } %>
+  </div>
+</body>
+<%- include ('partials/footer.ejs') %>
